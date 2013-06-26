@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="responsiveTestApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -18,15 +18,48 @@
       // ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
   </head>
-  <body>
-    <h1>Responsive Web Design Browser Test</h1>
-    <p class="lead">Simple and easier browser test for responsive web design.</p>
-    <form class="form-search">
-      <div class="input-append">
-        <input type="text" class="search-query">
-        <button type="submit" class="btn"><i class="icon-search"></i></button>
+  <body ng-controller="MainCtrl">
+    <header class="page-container" ng-class="{lookup: lookup}">
+      <div class="container">
+        <h1>Responsive Web Design Browser Test</h1>
+        <p class="lead">Simple and easier browser test for responsive web design.</p>
+        <form name="form" class="form-search" ng-submit="showWeb()" novalidate>
+          <div class="input-append">
+            <input name="url" type="url" class="search-query" ng-model="url" required>
+            <button type="submit" class="btn" ng-disabled="form.$invalid"><i class="icon-search"></i></button>
+          </div>
+        </form>
       </div>
-    </form>
+    </header>
+    <section class="overflow" ng-show="lookup" ng-class="{lookup: lookup}">
+      <div class="inner">
+        <div>
+          <h2><i class="icon-mobile-phone"></i> 320 x 480 <small>iPhone - Portrait</small></h2>
+          <iframe ng-src="{{result}}" sandbox="allow-forms allow-same-origin allow-scripts" seamless width="320" height="480"></iframe>
+        </div>
+        <div>
+          <h2><i class="icon-mobile-phone icon-rotate-90"></i> 480 x 320 <small>iPhone - Landscape</small></h2>
+          <iframe ng-src="{{result}}" sandbox="allow-forms allow-same-origin allow-scripts" seamless width="480" height="320"></iframe>
+        </div>
+        <div>
+          <h2><i class="icon-android"></i> 600 x 880 <small>Nexus 7 - Landscape</small></h2>
+          <iframe ng-src="{{result}}" sandbox="allow-forms allow-same-origin allow-scripts" seamless width="600" height="880"></iframe>
+        </div>
+        <div>
+          <h2><i class="icon-tablet"></i> 768 x 1024 <small>iPad - Portrait</small></h2>
+          <iframe ng-src="{{result}}" sandbox="allow-forms allow-same-origin allow-scripts" seamless width="768" height="1024"></iframe>
+        </div>
+        <div>
+          <h2><i class="icon-tablet icon-rotate-90"></i> 1024 x 768 <small>iPad - Landscape</small></h2>
+          <iframe ng-src="{{result}}" sandbox="allow-forms allow-same-origin allow-scripts" seamless width="1024" height="768"></iframe>
+        </div>
+      </div>
+    </section>
+    <footer class="tagline" ng-class="{lookup: lookup}">
+      <div class="container">
+        <p class="credit">Designed and developed by <a href="https://github.com/hiromitz">hiromitz</a>.</p>
+      </div>
+    </footer>
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
     <script src="js/main.js"></script>

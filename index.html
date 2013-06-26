@@ -31,31 +31,31 @@
         </form>
       </div>
     </header>
-    <div class="overflow" ng-show="lookup">
-      <ul class="inline">
-        <li>
+    <section class="overflow" ng-show="lookup" ng-class="{lookup: lookup}">
+      <div class="inner">
+        <div>
           <h2><i class="icon-mobile-phone"></i> 320 x 480 <small>iPhone - Portrait</small></h2>
           <iframe ng-src="{{result}}" sandbox="allow-forms allow-same-origin allow-scripts" seamless width="320" height="480"></iframe>
-        </li>
-        <li>
+        </div>
+        <div>
           <h2><i class="icon-mobile-phone icon-rotate-90"></i> 480 x 320 <small>iPhone - Landscape</small></h2>
           <iframe ng-src="{{result}}" sandbox="allow-forms allow-same-origin allow-scripts" seamless width="480" height="320"></iframe>
-        </li>
-        <li>
+        </div>
+        <div>
           <h2><i class="icon-android"></i> 600 x 880 <small>Nexus 7 - Landscape</small></h2>
           <iframe ng-src="{{result}}" sandbox="allow-forms allow-same-origin allow-scripts" seamless width="600" height="880"></iframe>
-        </li>
-        <li>
+        </div>
+        <div>
           <h2><i class="icon-tablet"></i> 768 x 1024 <small>iPad - Portrait</small></h2>
           <iframe ng-src="{{result}}" sandbox="allow-forms allow-same-origin allow-scripts" seamless width="768" height="1024"></iframe>
-        </li>
-        <li>
+        </div>
+        <div>
           <h2><i class="icon-tablet icon-rotate-90"></i> 1024 x 768 <small>iPad - Landscape</small></h2>
           <iframe ng-src="{{result}}" sandbox="allow-forms allow-same-origin allow-scripts" seamless width="1024" height="768"></iframe>
-        </li>
-      </ul>
-    </div>
-    <footer class="tagline">
+        </div>
+      </div>
+    </section>
+    <footer class="tagline" ng-class="{lookup: lookup}">
       <div class="container">
         <p class="credit">Designed and developed by <a href="https://github.com/hiromitz">hiromitz</a>.</p>
       </div>

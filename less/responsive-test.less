@@ -3,8 +3,13 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 100px;
+  bottom: 0;
+  height: 100%;
   background: @grayLighter;
+
+  z-index: 100;
+
+  .transition(all .2s linear);
 
   .container {
     position: relative;
@@ -23,8 +28,18 @@
             box-pack: center;
   }
 
-  .lookup {
-  	position: relative;
+  &.lookup {
+    bottom: auto;
+    height: 100px;
+
+    .opacity(60);
+    &:hover {
+      .opacity(100);
+    }
+
+    h1, p {
+      display: none;
+    }
   }
 }
 .tagline {
@@ -32,45 +47,85 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100px;
+  height: 60px;
   background: @grayLight;
+
+  z-index: 101;
 
   .credit {
     margin: 20px;
   }
+
+  &.lookup {
+    position: relative;
+  }
 }
 
-// .form-search .input-append .search-query {
-//   // .border-radius(14px 0 0 14px);
-//   font-weight: 300;
-//   padding: 12px 6px;
-//   font-size: 26px;
-//   width: 100%;
-//   color: @gray;
-//   letter-spacing: 1px;
-//   -webkit-font-smoothing: antialiased;
-//   -webkit-appearance: none;
-//      -moz-appearance: none;
-// }
-// .form-search .input-append .btn {
-//   // .border-radius(0 14px 14px 0);
-//   position: absolute;
-//   right: 6px;
-//   top: 0;
-//   font-size: 26px;
-//   width: 40px;
-//   padding: 0;
-//   text-align: center;
-//   height: 100%;
-//   color: #b7b7b7;
-//   background: #f9f9f9;
-// }
+.form-search {
 
+  margin: @baseLineHeight 0;
+
+  .input-append {
+
+    display: block;
+    background: #fff;
+    padding: 10px;
+
+    .search-query {
+      width: 100%;
+      padding: 5px;
+      font-size: @baseFontSize * 1.4;
+      font-weight: 200;
+      color: @gray;
+      background: none;
+      border: none;
+      .box-shadow(none);
+    }
+
+    .btn {
+      background: none;
+      border: none;
+
+      position: absolute;
+      right: 10px;
+      .opacity(50);
+      .box-shadow(none);
+      &:hover {
+        .opacity(100);
+      }
+    }
+  }
+
+}
 .overflow {
+  margin-top: 100px;
   overflow: auto;
   max-width: 100%;
+  height: 1200px;
+
+  .transition(opacity .2s linear);
+  .opacity(0);
+
+  &.lookup {
+    .opacity(100);
+  }
+
+  .inner {
+    width: 3400px;
+    padding: 20px;
+    &>div {
+      float: left;
+      margin: 0 10px;
+      .transition(opacity .2s linear);
+      .opacity(60);
+      &:hover {
+        .opacity(100);
+      }
+    }
+  }
 }
 
 iframe {
-  border: 4px solid @grayLight;
+  border: 4px solid @gray;
+  border-radius: 4px;
 }
